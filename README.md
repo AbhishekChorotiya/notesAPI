@@ -1,18 +1,16 @@
 
-# Notes API
-
-This is a simple API for managing notes. It allows you to create, retrieve, update, and delete notes.
+# Notes API Documentation
 
 ## Installation
 
-1. **Clone the repository:**
+- Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/notes-api.git
-   cd notes-api
+   git clone https://github.com/AbhishekChorotiya/skillstreet.git
+   cd skillstreet
    ```
 
-2. **Install dependencies:**
+- Install dependencies:
 
    ```bash
    npm install
@@ -20,21 +18,41 @@ This is a simple API for managing notes. It allows you to create, retrieve, upda
 
 ## Usage
 
-### 1. Start the API server:
+ - Start the API server:
 
 ```bash
 npm start
 ```
 
-The API will be available at `http://localhost:3000` by default.
+- The API will be available at `http://localhost:3000` by default.
 
-### 2. API Endpoints
+### Base URL
+```
+http://localhost:3000/
+```
 
-- **Create a New Note:**
+## Testing 
+In root directory 
+```bash
+npm test
+```
+- It tests the App on different testcases.
+- Framework used - **Jest**
+
+## **API Endpoints**
+
+### 1. Create a New Note
+
+- **Endpoint:**
+  ```
+  POST /notes
+  ```
+
+- **Request:**
   - Method: `POST`
-  - URL: `http://localhost:3000/notes`
+  - URL: `/notes`
   - Headers:
-    - Authorization: Basic Auth (Username: admin, Password: admin)
+    - Authorization: Basic Auth (Username: **admin**, Password: **admin**)
   - Body:
     ```json
     {
@@ -43,23 +61,80 @@ The API will be available at `http://localhost:3000` by default.
     }
     ```
 
-- **Retrieve All Notes:**
-  - Method: `GET`
-  - URL: `http://localhost:3000/notes`
-  - Headers:
-    - Authorization: Basic Auth (Username: admin, Password: admin)
+- **Response:**
+  - Status Code: `201 Created`
+  - Body:
+    ```json
+    {
+      "_id": "string",
+      "title": "string",
+      "content": "string"
+    }
+    ```
 
-- **Retrieve Single Note by ID:**
-  - Method: `GET`
-  - URL: `http://localhost:3000/notes/:id`
-  - Headers:
-    - Authorization: Basic Auth (Username: admin, Password: admin)
+### 2. Retrieve All Notes
 
-- **Update Note by ID:**
+- **Endpoint:**
+  ```
+  GET /notes
+  ```
+
+- **Request:**
+  - Method: `GET`
+  - URL: `/notes`
+  - Headers:
+    - Authorization: Basic Auth (Username: **admin**, Password: **admin**)
+
+- **Response:**
+  - Status Code: `200 OK`
+  - Body:
+    ```json
+    [
+      {
+        "_id": "string",
+        "title": "string",
+        "content": "string"
+      },
+      // ... (more notes)
+    ]
+    ```
+
+### 3. Retrieve Single Note by ID
+
+- **Endpoint:**
+  ```
+  GET /notes/:id
+  ```
+
+- **Request:**
+  - Method: `GET`
+  - URL: `/notes/:id`
+  - Headers:
+    - Authorization: Basic Auth (Username: **admin**, Password: **admin**)
+
+- **Response:**
+  - Status Code: `200 OK`
+  - Body:
+    ```json
+    {
+      "_id": "string",
+      "title": "string",
+      "content": "string"
+    }
+    ```
+
+### 4. Update Note by ID
+
+- **Endpoint:**
+  ```
+  PUT /notes/:id
+  ```
+
+- **Request:**
   - Method: `PUT`
-  - URL: `http://localhost:3000/notes/:id`
+  - URL: `/notes/:id`
   - Headers:
-    - Authorization: Basic Auth (Username: admin, Password: admin)
+    - Authorization: Basic Auth (Username: **admin**, Password: **admin**)
   - Body:
     ```json
     {
@@ -68,13 +143,40 @@ The API will be available at `http://localhost:3000` by default.
     }
     ```
 
-- **Delete Note by ID:**
-  - Method: `DELETE`
-  - URL: `http://localhost:3000/notes/:id`
-  - Headers:
-    - Authorization: Basic Auth (Username: admin, Password: admin)
+- **Response:**
+  - Status Code: `200 OK`
+  - Body:
+    ```json
+    {
+      "_id": "string",
+      "title": "string",
+      "content": "string"
+    }
+    ```
 
-### 3. Error Responses
+### 5. Delete Note by ID
+
+- **Endpoint:**
+  ```
+  DELETE /notes/:id
+  ```
+
+- **Request:**
+  - Method: `DELETE`
+  - URL: `/notes/:id`
+  - Headers:
+    - Authorization: Basic Auth (Username: **admin**, Password: **admin**)
+
+- **Response:**
+  - Status Code: `200 OK`
+  - Body:
+    ```json
+    {
+      "message": "Note deleted successfully"
+    }
+    ```
+
+### 6. Error Responses
 
 - **Unauthorized Access (401):**
   - Status Code: `401 Unauthorized`
@@ -103,11 +205,9 @@ The API will be available at `http://localhost:3000` by default.
     }
     ```
 
-
-### Contact
+## Contact
 
 - Name : Abhishek Chorotiya
 - Phone : +91 8003132368
-- Email : 2020kuec2033@iiitkota.ac.in
-
-ThankYou !
+- Email : 2020kuec2033@iiitkota.ac.in 
+  
