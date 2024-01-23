@@ -6,8 +6,8 @@
 - Clone the repository:
 
    ```bash
-   git clone https://github.com/AbhishekChorotiya/skillstreet.git
-   cd skillstreet
+   git clone https://github.com/AbhishekChorotiya/notesAPI.git
+   cd notesAPI
    ```
 
 - Install dependencies:
